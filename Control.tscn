@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 127.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+margin_right = 149.0
+margin_bottom = 20.0
+text = "Select input directory"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 153.0
+margin_top = 3.0
+margin_right = 153.0
+margin_bottom = 17.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_top = 31.0
+margin_right = 127.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OutButton" type="Button" parent="HBoxContainer2"]
+margin_right = 158.0
+margin_bottom = 20.0
+text = "Select output directory"
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+margin_left = 162.0
+margin_top = 3.0
+margin_right = 162.0
+margin_bottom = 17.0
+
+[node name="FileDialog" type="FileDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -289.0
+margin_top = -216.5
+margin_right = 289.0
+margin_bottom = 216.5
+window_title = "Open a Directory"
+mode = 2
+access = 2
+show_hidden_files = true
+current_dir = "/home/username/Desktop"
+current_file = "Desktop"
+current_path = "/home/username/Desktop/Desktop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Console" type="RichTextLabel" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -63.5
+margin_top = -10.0
+margin_right = 63.5
+margin_bottom = 10.0
+text = "Start!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+anchor_left = 0.2
+anchor_top = 0.5
+anchor_right = 0.8
+anchor_bottom = 0.5
+margin_left = -2.0
+margin_top = -7.0
+margin_right = 35.0
+margin_bottom = 7.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/OutButton" to="." method="_on_OutButton_pressed"]
+[connection signal="confirmed" from="FileDialog" to="." method="_on_FileDialog_confirmed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
